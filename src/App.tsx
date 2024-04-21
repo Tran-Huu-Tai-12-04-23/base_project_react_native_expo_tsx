@@ -7,6 +7,9 @@ import { useLoadedAssets } from './hooks/useLoadedAssets';
 import Navigation from './navigation';
 import React from 'react';
 import { AuthProvider } from '@context/authContext';
+import { PaperProvider } from 'react-native-paper';
+import { LoadingProvider } from '@context/loadingGlobalContext';
+
 export default function App() {
    const isLoadingComplete = useLoadedAssets();
 
@@ -15,10 +18,14 @@ export default function App() {
    } else {
       return (
          <AuthProvider>
-            <SafeAreaProvider>
-               <Navigation />
-               <StatusBar />
-            </SafeAreaProvider>
+            <LoadingProvider>
+               <PaperProvider>
+                  <SafeAreaProvider>
+                     <Navigation />
+                     <StatusBar />
+                  </SafeAreaProvider>
+               </PaperProvider>
+            </LoadingProvider>
          </AuthProvider>
       );
    }

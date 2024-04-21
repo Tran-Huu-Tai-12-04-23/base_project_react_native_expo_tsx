@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, FC } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 interface UserData {
    user: any;
