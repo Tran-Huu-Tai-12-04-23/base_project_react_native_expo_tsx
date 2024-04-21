@@ -1,0 +1,21 @@
+{
+   "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs",
+      "jsx": "react",
+      "strict": true,
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "paths": {
+         "@components/*": ["src/components/*"],
+         "@navigation/*": ["src/navigation/*"],
+         "@hooks/*": ["src/hooks/*"],
+         "@helper/*": ["src/helper/*"],
+         "@constants/*": ["src/constants/*"],
+         "@screen/*": ["src/screen/*"],
+         "@layout/*": ["src/layout/*"],
+         "@context/*": ["src/contexts/*"]
+      }
+   },
+   "extends": "expo/tsconfig.base"
+}
