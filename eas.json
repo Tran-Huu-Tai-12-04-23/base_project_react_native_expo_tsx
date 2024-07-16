@@ -1,0 +1,41 @@
+{
+  "build": {
+    "development": {
+      "channel": "development",
+      "ios": {
+        "cocoapods": "1.14.3",
+        "scheme": "LifeManagerDev"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "development",
+        "EXPO_PUBLIC_APP_NAME": "Life Manager Dev",
+        "EXPO_PUBLIC_BUNDLE_ID": "com.genny.LifeManager.dev",
+        "EXPO_PUBLIC_API": "https://life-manager-api.genny.id.vn/"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "ios": {
+        "cocoapods": "1.14.3",
+        "scheme": "APP"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "production",
+        "EXPO_PUBLIC_APP_NAME": "Life Manager",
+        "EXPO_PUBLIC_BUNDLE_ID": "com.genny.LifeManager.pro",
+        "EXPO_PUBLIC_API": "https://life-manager-api.genny.id.vn/"
+      }
+    }
+  },
+
+  "cli": {
+    "version": ">= 0.53.1",
+    "promptToConfigurePushNotifications": false
+  }
+}

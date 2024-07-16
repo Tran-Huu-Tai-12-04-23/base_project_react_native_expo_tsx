@@ -1,12 +1,20 @@
-import React from 'react';
-import { View } from 'react-native';
-import { styleGlobal } from 'src/styles';
+import { useTheme } from "@context/themContext";
+import React from "react";
+import { SafeAreaView } from "react-native";
+import { styleGlobal } from "src/styles";
 
 type PropsType = {
-   children: React.ReactNode;
+  children: React.ReactNode;
 };
 function MainLayout({ children }: PropsType) {
-   return <View style={styleGlobal.container}>{children}</View>;
+  const { theme } = useTheme();
+  return (
+    <SafeAreaView
+      style={[styleGlobal.container, { backgroundColor: theme.background }]}
+    >
+      {children}
+    </SafeAreaView>
+  );
 }
 
 export default MainLayout;
