@@ -1,41 +1,79 @@
 {
   "build": {
     "development": {
-      "channel": "development",
+      "autoIncrement": true,
+      "channel": "dev",
       "ios": {
-        "cocoapods": "1.14.3",
-        "scheme": "LifeManagerDev"
+        "cocoapods": "1.15.2",
+        "scheme": "PMSDEVELOP"
       },
       "android": {
+        "gradleCommand": ":app:assembleRelease",
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_APP_VARIANT": "development",
-        "EXPO_PUBLIC_APP_NAME": "Life Manager Dev",
-        "EXPO_PUBLIC_BUNDLE_ID": "com.genny.LifeManager.dev",
-        "EXPO_PUBLIC_API": "https://life-manager-api.genny.id.vn/"
+        "EXPO_PUBLIC_APP_VARIANT": "dev",
+        "EXPO_PUBLIC_APP_NAME": "Pms App Dev",
+        "EXPO_PUBLIC_BUNDLE_ID": "com.pms.ape.development",
+        "EXPO_PUBLIC_APP_API": "https://ape-pms-api.apetechs.co"
+      }
+    },
+    "staging": {
+      "autoIncrement": true,
+      "channel": "staging",
+      "ios": {
+        "cocoapods": "1.15.2",
+        "scheme": "PMSPRODUCTION"
+      },
+      "android": {
+        "gradleCommand": ":app:assembleRelease",
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_VARIANT": "stag",
+        "EXPO_PUBLIC_APP_NAME": "Pms App Stag",
+        "EXPO_PUBLIC_BUNDLE_ID": "com.pms.ape.staging",
+        "EXPO_PUBLIC_APP_API": "https://ape-pms-api.apetechs.co"
       }
     },
     "production": {
+      "autoIncrement": true,
       "channel": "production",
       "ios": {
-        "cocoapods": "1.14.3",
-        "scheme": "APP"
+        "cocoapods": "1.15.2",
+        "scheme": "PmsAppPro"
       },
       "android": {
+        "gradleCommand": ":app:assembleRelease",
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_APP_VARIANT": "production",
-        "EXPO_PUBLIC_APP_NAME": "Life Manager",
-        "EXPO_PUBLIC_BUNDLE_ID": "com.genny.LifeManager.pro",
-        "EXPO_PUBLIC_API": "https://life-manager-api.genny.id.vn/"
+        "EXPO_PUBLIC_APP_VARIANT": "prod",
+        "EXPO_PUBLIC_APP_NAME": "PMS PRODUCTION",
+        "EXPO_PUBLIC_BUNDLE_ID": "com.pms.ape.production",
+        "EXPO_PUBLIC_APP_API": "https://ape-pms-api.apetechs.co"
       }
     }
   },
-
+  "submit": {
+    "dev": {
+      "ios": {
+        "appleId": "apetechs.dev@gmail.com",
+        "ascAppId": "6448030517",
+        "appleTeamId": "C8MY644AR6"
+      }
+    },
+    "production": {
+      "ios": {
+        "appleId": "apetechs.dev@gmail.com",
+        "ascAppId": "6448030289",
+        "appleTeamId": "C8MY644AR6"
+      }
+    }
+  },
   "cli": {
     "version": ">= 0.53.1",
-    "promptToConfigurePushNotifications": false
+    "promptToConfigurePushNotifications": false,
+    "appVersionSource": "remote"
   }
 }
