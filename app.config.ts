@@ -5,16 +5,22 @@ dotenv.config();
 
 const envs = {
   development: {
-    EXPO_PUBLIC_APP_VARIANT: "dev",
-    EXPO_PUBLIC_APP_NAME: "PMS DEVELOP",
-    EXPO_PUBLIC_BUNDLE_ID: "com.pms.ape.development",
-    EXPO_PUBLIC_APP_API: "https://ape-pms-api.apetechs.co",
+    EXPO_PUBLIC_APP_VARIANT: "development",
+    EXPO_PUBLIC_APP_NAME: "GreenLeaf Driver Dev",
+    EXPO_PUBLIC_BUNDLE_ID: "com.greenleafdriver.dev",
+    EXPO_PUBLIC_APP_API: "https://greenleaf-api.apetechs.co",
+  },
+  staging: {
+    EXPO_PUBLIC_APP_VARIANT: "staging",
+    EXPO_PUBLIC_APP_NAME: "GreenLeaf Driver Stag",
+    EXPO_PUBLIC_BUNDLE_ID: "com.greenleafdriver.stag",
+    EXPO_PUBLIC_APP_API: "https://greenleaf-api.apetechs.co",
   },
   production: {
-    EXPO_PUBLIC_APP_VARIANT: "prod",
-    EXPO_PUBLIC_APP_NAME: "PMS PRODUCTION",
-    EXPO_PUBLIC_BUNDLE_ID: "com.pms.ape.production",
-    EXPO_PUBLIC_APP_API: "https://ape-pms-api.apetechs.co",
+    EXPO_PUBLIC_APP_VARIANT: "production",
+    EXPO_PUBLIC_APP_NAME: "GreenLeaf Driver Pro",
+    EXPO_PUBLIC_BUNDLE_ID: "com.greenleafdriver.pro",
+    EXPO_PUBLIC_APP_API: "https://greenleaf-api-prod.apetechs.co",
   },
 };
 
@@ -65,7 +71,7 @@ export default ({ config }: ConfigContext): Partial<ExpoConfig> => {
     },
     orientation: "portrait",
     userInterfaceStyle: "automatic",
-    slug: "pms-app",
+    slug: "greanleaf-driver",
     version: "1.0.1",
     icon: "./assets/icon.png",
     splash: {
@@ -93,10 +99,17 @@ export default ({ config }: ConfigContext): Partial<ExpoConfig> => {
 
     plugins: [
       [
-        "expo-secure-store",
+        "expo-location",
         {
-          faceIDPermission:
-            "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
+          locationAlwaysAndWhenInUsePermission:
+            "Allow $(PRODUCT_NAME) to use your location.",
+        },
+      ],
+      [
+        "expo-image-picker",
+        {
+          photosPermission: "Allow $(PRODUCT_NAME) to access your photo",
+          cameraPermission: "Allow $(PRODUCT_NAME) to access your camera",
         },
       ],
     ],

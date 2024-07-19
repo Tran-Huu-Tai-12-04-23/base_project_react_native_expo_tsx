@@ -1,6 +1,7 @@
 import { AuthProvider } from "@context/authContext";
+import BottomSheetProvider from "@context/bottomSheetContext";
+import DateTimePickerBottomSheetProvider from "@context/dateTimePickerBottomSheet";
 import { LoadingProvider } from "@context/loadingGlobalContext";
-import { ThemeProvider } from "@context/themContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import { StatusBar } from "react-native";
@@ -21,17 +22,19 @@ export default function App() {
     return (
       <QueryClientProvider client={queryClient}>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <ThemeProvider>
-            <AuthProvider>
-              <LoadingProvider>
-                <SafeAreaProvider>
-                  <Navigation />
-                  <Toast />
-                  <StatusBar />
-                </SafeAreaProvider>
-              </LoadingProvider>
-            </AuthProvider>
-          </ThemeProvider>
+          <BottomSheetProvider>
+            <DateTimePickerBottomSheetProvider>
+              <AuthProvider>
+                <LoadingProvider>
+                  <SafeAreaProvider>
+                    <Navigation />
+                    <Toast />
+                    <StatusBar />
+                  </SafeAreaProvider>
+                </LoadingProvider>
+              </AuthProvider>
+            </DateTimePickerBottomSheetProvider>
+          </BottomSheetProvider>
         </GestureHandlerRootView>
       </QueryClientProvider>
     );

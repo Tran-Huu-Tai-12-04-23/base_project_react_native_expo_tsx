@@ -1,0 +1,171 @@
+{
+  "project_info": {
+    "project_number": "598306781552",
+    "firebase_url": "https://greenleaf-3e7e7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "greenleaf-3e7e7",
+    "storage_bucket": "greenleaf-3e7e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598306781552:android:88fa9101ab4c180969b7b5",
+        "android_client_info": {
+          "package_name": "com.greenleaf.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP-BsI6h7tDLRsT3kZ3VykXQJlWbWqmEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "598306781552-1i29a0m33bljomna2mipevpbhfta27e5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.greenleafDriver.production"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598306781552:android:a704121645122d4e69b7b5",
+        "android_client_info": {
+          "package_name": "com.greenleafDriver.production"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598306781552-2v1d683cukdiq5efe8qne4voa0ff58bd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greenleafDriver.production",
+            "certificate_hash": "07d500966f5a9a304d9fbcab04d82cdb35d1fb22"
+          }
+        },
+        {
+          "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP-BsI6h7tDLRsT3kZ3VykXQJlWbWqmEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "598306781552-1i29a0m33bljomna2mipevpbhfta27e5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.greenleafDriver.production"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598306781552:android:a21b396a279acac969b7b5",
+        "android_client_info": {
+          "package_name": "com.greenleafcustomer.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP-BsI6h7tDLRsT3kZ3VykXQJlWbWqmEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "598306781552-1i29a0m33bljomna2mipevpbhfta27e5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.greenleafDriver.production"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598306781552:android:a1b0ad72a232f45069b7b5",
+        "android_client_info": {
+          "package_name": "com.greenleafcustomer.production"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598306781552-39qndoo8d81sek9fql46mmnvhav65nal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.greenleafcustomer.production",
+            "certificate_hash": "9c161bfa370942c3af60ae70a224a4c97020204a"
+          }
+        },
+        {
+          "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP-BsI6h7tDLRsT3kZ3VykXQJlWbWqmEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598306781552-gl313s2sk0i2nh5f1cnl278s9mpt9t4n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "598306781552-1i29a0m33bljomna2mipevpbhfta27e5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.greenleafDriver.production"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

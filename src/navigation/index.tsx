@@ -4,11 +4,11 @@ import {
   NavigationContainer,
   NavigationState,
 } from "@react-navigation/native";
+import { AppStack } from "@screens/app/AppStack";
 import React from "react";
 import { StatusBar } from "react-native";
 import "react-native-gesture-handler";
 import AuthNavigator from "./AuthNavigator";
-import BottomTabNavigator from "./BottomTabNavigator";
 import { navigationRef } from "./NavigationService";
 
 function screenTracking(state: NavigationState | undefined): void {
@@ -28,7 +28,7 @@ const MyTheme = {
   },
 };
 const MainNavigation = () => {
-  const { user } = useAuth();
+  const { loginData } = useAuth();
   return (
     <NavigationContainer
       theme={MyTheme}
@@ -36,8 +36,8 @@ const MainNavigation = () => {
       onStateChange={screenTracking}
     >
       <StatusBar barStyle="dark-content" />
-      {user && <BottomTabNavigator />}
-      {!user && <AuthNavigator />}
+      {loginData && <AppStack />}
+      {!loginData && <AuthNavigator />}
     </NavigationContainer>
   );
 };

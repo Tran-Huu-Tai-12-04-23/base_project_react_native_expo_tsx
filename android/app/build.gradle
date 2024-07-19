@@ -83,13 +83,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.genny.LifeManager.dev'
+    namespace 'com.greenleafdriver.dev'
     defaultConfig {
-        applicationId 'com.genny.LifeManager.dev'
+        applicationId 'com.greenleafdriver.dev'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
     }
     signingConfigs {
         debug {

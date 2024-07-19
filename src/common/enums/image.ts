@@ -1,0 +1,1 @@
+export const SKELETON_IMG = "https://ape-devs.s3.amazonaws.com/bid/2021513-rm0wd53ccu.png";
