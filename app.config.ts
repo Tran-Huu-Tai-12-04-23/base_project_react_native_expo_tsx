@@ -6,16 +6,16 @@ dotenv.config();
 const envs = {
   development: {
     EXPO_PUBLIC_APP_VARIANT: "development",
-    EXPO_PUBLIC_APP_NAME: "Life Manager Dev",
-    EXPO_PUBLIC_BUNDLE_ID: "com.genny.LifeManager.dev",
+    EXPO_PUBLIC_APP_NAME: "Quiz Wise Dev",
+    EXPO_PUBLIC_BUNDLE_ID: "com.genny.quizwise.dev",
     EXPO_PUBLIC_API: "",
     GOOGLE_SERVICE_FILE: "./metadata/google-services-dev.json",
     IOS_SERVICE_FILE: "./metadata/GoogleService-Info-dev.plist",
   },
   production: {
     EXPO_PUBLIC_APP_VARIANT: "production",
-    EXPO_PUBLIC_APP_NAME: "Life Manager",
-    EXPO_PUBLIC_BUNDLE_ID: "com.genny.LifeManager.prod",
+    EXPO_PUBLIC_APP_NAME: "Quiz Wise",
+    EXPO_PUBLIC_BUNDLE_ID: "com.genny.quizwise.prod",
     EXPO_PUBLIC_API: "",
     GOOGLE_SERVICE_FILE: "./metadata/google-services-pro.json",
     IOS_SERVICE_FILE: "./metadata/GoogleService-Info-pro.plist",
