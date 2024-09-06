@@ -1,5 +1,6 @@
 import { ExpoConfig } from "@expo/config";
 import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 
@@ -30,29 +31,37 @@ const {
   IOS_SERVICE_FILE,
 } = envs[(process.env.NODE_ENV as keyof typeof envs) || "production"];
 
-if (EXPO_PUBLIC_BUNDLE_ID == null) {
+if (!EXPO_PUBLIC_BUNDLE_ID) {
   throw new Error("EXPO_PUBLIC_BUNDLE_ID is not defined");
 }
 
-if (EXPO_PUBLIC_APP_NAME == null) {
+if (!EXPO_PUBLIC_APP_NAME) {
   throw new Error("EXPO_PUBLIC_APP_NAME is not defined");
 }
 
-if (EXPO_PUBLIC_APP_VARIANT == null) {
+if (!EXPO_PUBLIC_APP_VARIANT) {
   throw new Error("EXPO_PUBLIC_APP_VARIANT is not defined");
+}
+
+if (!fs.existsSync(IOS_SERVICE_FILE)) {
+  throw new Error(`iOS service file not found: ${IOS_SERVICE_FILE}`);
+}
+
+if (!fs.existsSync(GOOGLE_SERVICE_FILE)) {
+  throw new Error(`Google service file not found: ${GOOGLE_SERVICE_FILE}`);
 }
 
 export default (): ExpoConfig => ({
   orientation: "portrait",
   userInterfaceStyle: "automatic",
   name: EXPO_PUBLIC_APP_NAME,
-  slug: "life-manager-app",
+  slug: "quizwise",
   version: "1.0.1",
   icon: "./assets/icon.png",
   splash: {
     image: "./assets/splash.png",
     resizeMode: "cover",
-    backgroundColor: "#ffffff",
+    backgroundColor: "transparent",
   },
   assetBundlePatterns: ["**/*"],
   web: {
@@ -81,6 +90,9 @@ export default (): ExpoConfig => ({
       usesNonExemptEncryption: false,
     },
     googleServicesFile: IOS_SERVICE_FILE,
+    entitlements: {
+      "aps-environment": "production",
+    },
   },
   android: {
     versionCode: 1,
@@ -90,8 +102,6 @@ export default (): ExpoConfig => ({
     googleServicesFile: GOOGLE_SERVICE_FILE,
   },
   plugins: [
-    "@react-native-firebase/app",
-    "@react-native-firebase/auth",
     [
       "expo-build-properties",
       {
@@ -100,6 +110,8 @@ export default (): ExpoConfig => ({
         },
       },
     ],
+    "@react-native-firebase/app",
+    "@react-native-firebase/auth",
     [
       "expo-secure-store",
       {
@@ -107,5 +119,6 @@ export default (): ExpoConfig => ({
           "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
       },
     ],
+    "expo-font",
   ],
 });
