@@ -10,6 +10,7 @@ import "react-native-gesture-handler";
 import AuthNavigator from "./AuthNavigator";
 import BottomTabNavigator from "./BottomTabNavigator";
 import { navigationRef } from "./NavigationService";
+import NotificationHandler from "./NotificationHandler";
 
 function screenTracking(state: NavigationState | undefined): void {
   if (state) {
@@ -36,6 +37,7 @@ const MainNavigation = () => {
       onStateChange={screenTracking}
     >
       <StatusBar barStyle="dark-content" />
+      <NotificationHandler />
       {user && <BottomTabNavigator />}
       {!user && <AuthNavigator />}
     </NavigationContainer>

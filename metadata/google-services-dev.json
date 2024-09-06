@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "239676207923",
+    "project_id": "ape-bot-e0c42",
+    "storage_bucket": "ape-bot-e0c42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239676207923:android:188aef578766fa13608446",
+        "android_client_info": {
+          "package_name": "com.apetechs.apebot.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSo_YikijptmNFl0xv0EYZ8qCuw0-6RUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

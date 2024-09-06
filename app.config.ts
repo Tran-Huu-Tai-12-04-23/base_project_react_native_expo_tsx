@@ -9,17 +9,26 @@ const envs = {
     EXPO_PUBLIC_APP_NAME: "Life Manager Dev",
     EXPO_PUBLIC_BUNDLE_ID: "com.genny.LifeManager.dev",
     EXPO_PUBLIC_API: "",
+    GOOGLE_SERVICE_FILE: "./metadata/google-services-dev.json",
+    IOS_SERVICE_FILE: "./metadata/GoogleService-Info-dev.plist",
   },
   production: {
     EXPO_PUBLIC_APP_VARIANT: "production",
     EXPO_PUBLIC_APP_NAME: "Life Manager",
     EXPO_PUBLIC_BUNDLE_ID: "com.genny.LifeManager.prod",
     EXPO_PUBLIC_API: "",
+    GOOGLE_SERVICE_FILE: "./metadata/google-services-pro.json",
+    IOS_SERVICE_FILE: "./metadata/GoogleService-Info-pro.plist",
   },
 };
 
-const { EXPO_PUBLIC_APP_VARIANT, EXPO_PUBLIC_APP_NAME, EXPO_PUBLIC_BUNDLE_ID } =
-  envs[(process.env.NODE_ENV as keyof typeof envs) || "production"];
+const {
+  EXPO_PUBLIC_APP_VARIANT,
+  EXPO_PUBLIC_APP_NAME,
+  EXPO_PUBLIC_BUNDLE_ID,
+  GOOGLE_SERVICE_FILE,
+  IOS_SERVICE_FILE,
+} = envs[(process.env.NODE_ENV as keyof typeof envs) || "production"];
 
 if (EXPO_PUBLIC_BUNDLE_ID == null) {
   throw new Error("EXPO_PUBLIC_BUNDLE_ID is not defined");
@@ -71,13 +80,26 @@ export default (): ExpoConfig => ({
     config: {
       usesNonExemptEncryption: false,
     },
+    googleServicesFile: IOS_SERVICE_FILE,
   },
   android: {
     versionCode: 1,
     package: EXPO_PUBLIC_BUNDLE_ID,
     userInterfaceStyle: "automatic",
+    permissions: ["INTERNET", "ACCESS_NETWORK_STATE", "WAKE_LOCK"],
+    googleServicesFile: GOOGLE_SERVICE_FILE,
   },
   plugins: [
+    "@react-native-firebase/app",
+    "@react-native-firebase/auth",
+    [
+      "expo-build-properties",
+      {
+        ios: {
+          useFrameworks: "static",
+        },
+      },
+    ],
     [
       "expo-secure-store",
       {
