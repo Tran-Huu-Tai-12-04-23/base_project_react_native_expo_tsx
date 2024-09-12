@@ -1,5 +1,7 @@
 import * as SecureStore from "expo-secure-store";
+import { Platform, StatusBar } from "react-native";
 import { ACCESS_TOKEN, USER_LOGIN } from "./keys";
+import { deviceHeight, deviceWidth, isIphoneX } from "./utils";
 
 export const config = {
   headerStyle: {
@@ -21,6 +23,23 @@ export enum EKeyCheck {
   LESS_EQ_ZERO,
 }
 interface TypeCheck {}
+
+export const normalize = (fontSize: number, standardScreenHeight = 680) => {
+  const standardLength =
+    deviceWidth > deviceHeight ? deviceWidth : deviceHeight;
+  const offset =
+    deviceWidth > deviceHeight
+      ? 0
+      : Platform.OS === "ios"
+      ? 78
+      : StatusBar.currentHeight;
+  const dvHeight =
+    isIphoneX() || Platform.OS === "android"
+      ? standardLength - (offset || 0)
+      : standardLength;
+  const heightPercent = (fontSize * dvHeight) / standardScreenHeight;
+  return Math.round(heightPercent);
+};
 
 const Helper = {
   formatVND: (money: number, prefix = "VNĐ") => {

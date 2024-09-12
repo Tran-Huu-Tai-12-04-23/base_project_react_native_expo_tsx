@@ -4,34 +4,62 @@ import React, { useState } from "react";
 import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import Row from "./Row";
 import TextDefault from "./TextDefault";
+
 type InputProps = {
   onChangeText: (text: string) => void;
   text: string;
   label?: string;
   placeholder?: string;
+  leftIcon?: React.ReactNode;
 };
-const Input = ({ onChangeText, text, label, placeholder }: InputProps) => {
+const Input = ({
+  onChangeText,
+  text,
+  label,
+  placeholder,
+  leftIcon,
+}: InputProps) => {
   const { theme } = useTheme();
+  const [isFocus, setIsFocus] = useState(false);
   return (
-    <Row full direction="column" start rowGap={5}>
+    <Row
+      full
+      direction="column"
+      start
+      rowGap={5}
+      style={[
+        styles.borderBottom,
+        {
+          borderColor: isFocus ? theme.primary : theme.border,
+        },
+      ]}
+    >
       {label && (
         <TextDefault style={[styles.label, { color: theme.textSecond }]}>
           {label}
         </TextDefault>
       )}
 
-      <TextInput
-        autoCapitalize="none"
-        keyboardType="default"
-        placeholder={placeholder}
-        placeholderTextColor={theme.textSecond}
-        style={[
-          styles.input,
-          { backgroundColor: theme.input.toString(), width: "100%" },
-        ]}
-        onChangeText={onChangeText}
-        value={text}
-      />
+      <Row
+        full
+        start
+        style={{
+          alignItems: "center",
+        }}
+      >
+        {leftIcon && leftIcon}
+        <TextInput
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          autoCapitalize="none"
+          keyboardType="default"
+          placeholder={placeholder}
+          placeholderTextColor={theme.textSecond}
+          style={[styles.input, { width: "100%" }]}
+          onChangeText={onChangeText}
+          value={text}
+        />
+      </Row>
     </Row>
   );
 };
@@ -41,16 +69,25 @@ const InputPassword = ({
   text,
   label,
   placeholder,
+  leftIcon,
 }: InputProps) => {
   const { theme } = useTheme();
   const [isPass, setIsPass] = useState(true);
+  const [isFocus, setIsFocus] = useState(false);
+
   return (
     <Row
       full
       direction="column"
       start
       rowGap={5}
-      style={{ position: "relative" }}
+      style={[
+        { position: "relative" },
+        styles.borderBottom,
+        {
+          borderColor: isFocus ? theme.primary : theme.border,
+        },
+      ]}
     >
       {label && (
         <TextDefault style={[styles.label, { color: theme.textSecond }]}>
@@ -58,19 +95,28 @@ const InputPassword = ({
         </TextDefault>
       )}
 
-      <TextInput
-        autoCapitalize="none"
-        keyboardType="default"
-        secureTextEntry={isPass}
-        placeholder={placeholder}
-        placeholderTextColor={theme.textSecond}
-        style={[
-          styles.input,
-          { backgroundColor: theme.input.toString(), width: "100%" },
-        ]}
-        onChangeText={onChangeText}
-        value={text}
-      />
+      <Row
+        full
+        start
+        style={{
+          alignItems: "center",
+        }}
+      >
+        {leftIcon && leftIcon}
+        <TextInput
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          autoCapitalize="none"
+          keyboardType="default"
+          secureTextEntry={isPass}
+          placeholder={placeholder}
+          placeholderTextColor={theme.textSecond}
+          style={[styles.input, { width: "100%" }]}
+          onChangeText={onChangeText}
+          value={text}
+        />
+      </Row>
+
       <TouchableOpacity
         style={styles.iconShowPass}
         onPress={() => setIsPass(!isPass)}
@@ -99,6 +145,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 10,
     top: 10,
+  },
+  borderBottom: {
+    borderBottomWidth: 1,
+    borderStyle: "solid",
   },
 });
 

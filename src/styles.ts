@@ -1,6 +1,11 @@
+import { normalize } from "@helper/helpers";
 import { StyleSheet } from "react-native";
 
 export const styleGlobal = StyleSheet.create({
+  icon: {
+    width: normalize(25),
+    height: normalize(25),
+  },
   borderBottom: {
     borderBottomWidth: 1,
     borderStyle: "solid",
@@ -12,12 +17,13 @@ export const styleGlobal = StyleSheet.create({
   },
   text: {
     color: "#1F2937",
+    fontSize: normalize(12),
   },
   container: {
     flex: 1,
   },
   title: {
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: "bold",
   },
   separator: {
@@ -28,4 +34,5 @@ export const styleGlobal = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
   },
+
 });

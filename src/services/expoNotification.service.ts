@@ -52,7 +52,7 @@ export async function registerForPushNotificationsAsync() {
       token = `${e}`;
     }
   } else {
-    alert("Must use physical device for Push Notifications");
+    console.log("Must use physical device for Push Notifications");
   }
 
   return token;

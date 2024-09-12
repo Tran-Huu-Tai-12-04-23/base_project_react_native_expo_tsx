@@ -1,6 +1,7 @@
 import { useTheme } from "@context/themContext";
+import { normalize } from "@helper/helpers";
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { View } from "react-native";
 import { styleGlobal } from "src/styles";
 
 type PropsType = {
@@ -9,11 +10,14 @@ type PropsType = {
 function MainLayout({ children }: PropsType) {
   const { theme } = useTheme();
   return (
-    <SafeAreaView
-      style={[styleGlobal.container, { backgroundColor: theme.background }]}
+    <View
+      style={[
+        styleGlobal.container,
+        { backgroundColor: theme.background, paddingTop: normalize(45) },
+      ]}
     >
       {children}
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -22,6 +22,29 @@ const TextDefault: FC<Props> = ({ children, style, bold, ...rest }) => {
         style,
         bold && styleText.bold,
         rest.center && styleText.center,
+        {
+          fontFamily: "Roboto",
+        },
+      ]}
+      {...rest}
+    >
+      {children}
+    </RNText>
+  );
+};
+
+export const Title: FC<Props> = ({ children, style, bold, ...rest }) => {
+  return (
+    <RNText
+      numberOfLines={rest.numberOfLines}
+      style={[
+        styleText.title,
+        style,
+        bold && styleText.bold,
+        rest.center && styleText.center,
+        {
+          fontFamily: "Roboto",
+        },
       ]}
       {...rest}
     >
@@ -33,6 +56,10 @@ const TextDefault: FC<Props> = ({ children, style, bold, ...rest }) => {
 const styleText = StyleSheet.create({
   center: { textAlign: "center" },
   bold: {
+    fontWeight: "bold",
+  },
+  title: {
+    fontSize: 20,
     fontWeight: "bold",
   },
 });

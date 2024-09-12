@@ -3,7 +3,7 @@ const themeData = {
     text: "#111827",
     textSecond: "#90959F",
     background: "#FFFFFF",
-    backgroundSecond: "#F9FAFB",
+    backgroundSecond: "rgba(0,0,0,0.1)",
     tabIconDefault: "#9BBDF8",
     tabIconSelected: "#699CF4",
     primary: "#699CF4",
@@ -12,6 +12,7 @@ const themeData = {
     success: "#1BB937",
     input: "#F9FAFB",
     icon: "#9CA3AF",
+    border: "#EEEFF2",
   },
   dark: {
     text: "#FFFFFF",
@@ -26,6 +27,7 @@ const themeData = {
     success: "#A7D2A5",
     input: "#2C313F",
     icon: "#9CA3AF",
+    border: "#EEEFF2",
   },
 };
 

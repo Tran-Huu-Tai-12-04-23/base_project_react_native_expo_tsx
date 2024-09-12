@@ -119,6 +119,11 @@ export default (): ExpoConfig => ({
           "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
       },
     ],
-    "expo-font",
+    [
+      "expo-font",
+      {
+        fonts: ["./assets/fonts/Roboto.ttf"],
+      },
+    ],
   ],
 });

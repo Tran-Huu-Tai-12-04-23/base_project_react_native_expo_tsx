@@ -7,19 +7,24 @@ import {
   InputPassword,
 } from "@components/index";
 import Row from "@components/Row";
+import Separator from "@components/Separator";
 import TextDefault from "@components/TextDefault";
-import Helper, { EKeyCheck } from "@helper/helpers";
+import { useTheme } from "@context/themContext";
+import Helper, { EKeyCheck, normalize } from "@helper/helpers";
+import MainLayout from "@layout/MainLayout";
+import EmailIcon from "assets/svg/email-icon";
+import LockIcon from "assets/svg/lock-icon";
 import React, { useState } from "react";
-import { SafeAreaView, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Toast from "react-native-toast-message";
 import useLogin from "src/services/hooks/auth/useLogin";
-import { styleGlobal } from "src/styles";
 
 interface LoginBody {
   username: string;
   password: string;
 }
 export default function LoginScreen() {
+  const { theme } = useTheme();
   const [isRemember, setIsRemember] = useState(false);
   const [userInput, setUserInput] = useState<LoginBody>({
     username: "",
@@ -59,27 +64,41 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaView style={styleGlobal.container}>
+    <MainLayout>
       <Row
         full
         direction="column"
         style={{ flex: 1, paddingHorizontal: 20 }}
         rowGap={10}
+        start
       >
-        <TextDefault center bold style={{ fontSize: 20 }}>
-          Welcome Back!
+        <TextDefault center bold>
+          Skip
         </TextDefault>
-        <TextDefault center>We're so excited to see you again!</TextDefault>
-        <Row full direction="column" start rowGap={8} style={{ marginTop: 10 }}>
-          <TextDefault bold style={{ fontSize: 12 }}>
-            Account information
-          </TextDefault>
+        <Separator height={normalize(10)} />
+        <TextDefault center bold style={{ fontSize: normalize(20) }}>
+          Hi! Welcome Back
+        </TextDefault>
+        <TextDefault center style={{ color: theme.backgroundSecond }}>
+          Let’s get you in to EduPrime
+        </TextDefault>
+
+        <Separator height={normalize(10)} />
+        <Row
+          full
+          direction="column"
+          start
+          rowGap={20}
+          style={{ marginTop: 10 }}
+        >
           <Input
+            leftIcon={<EmailIcon />}
             placeholder={"Username"}
             onChangeText={(txt) => handleChangeInput("username", txt)}
             text={userInput.username}
           />
           <InputPassword
+            leftIcon={<LockIcon />}
             placeholder={"Password"}
             onChangeText={(txt) => handleChangeInput("password", txt)}
             text={userInput.password}
@@ -105,6 +124,6 @@ export default function LoginScreen() {
         </Row>
         <BackBtn />
       </Row>
-    </SafeAreaView>
+    </MainLayout>
   );
 }

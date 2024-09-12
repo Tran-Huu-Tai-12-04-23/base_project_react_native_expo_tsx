@@ -2,6 +2,7 @@ export const ROUTE_KEY = createEnum({
   // =================================== auth route ==================================
   INTRO: "INTRO",
   LOGIN: "LOGIN",
+  GET_STARTED: "GET_STARTED",
 });
 
 export const BOTTOM_TAB_ROUTE = createEnum({
