@@ -72,7 +72,6 @@ function TeamPreview() {
         .map((data: any, index: number) => {
           const isFirst = index == 0;
           const dragHandlers = isFirst ? panResponder.panHandlers : {};
-
           return (
             <TeamCard
               index={index}

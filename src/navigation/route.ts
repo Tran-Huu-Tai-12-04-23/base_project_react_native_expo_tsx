@@ -2,14 +2,16 @@ export const ROUTE_KEY = createEnum({
   // =================================== auth route ==================================
   INTRO: "INTRO",
   LOGIN: "LOGIN",
+  REGISTER: "REGISTER",
   GET_STARTED: "GET_STARTED",
 });
 
 export const BOTTOM_TAB_ROUTE = createEnum({
   HOME: "HOME",
-  TASK: "TASK",
-  NOTIFICATION: "NOTIFICATION",
-  PROFILE: "PROFILE",
+  PERSONAL: "PERSONAL",
+  SEARCH: "SEARCH",
+  LIBRARY: "LIBRARY",
+  CREATE_QUIZ: "CREATE_QUIZ",
 });
 
 function createEnum<T extends { [P in keyof T]: P }>(o: T) {

@@ -16,6 +16,7 @@ interface ButtonPrimaryProps {
   disabled?: boolean;
   full?: boolean;
   borderColor?: string;
+  textColor?: string;
 }
 interface IconButtonProps extends ButtonPrimaryProps {
   icon: React.ReactNode;
@@ -124,6 +125,7 @@ const ButtonSecond = ({
   iconRight,
   minWidth = 100,
   disabled = false,
+  textColor,
 }: ButtonPrimaryProps) => {
   const { theme } = useTheme();
 
@@ -134,7 +136,7 @@ const ButtonSecond = ({
       style={[
         style.btn,
         {
-          backgroundColor: theme.backgroundSecond,
+          backgroundColor: theme.background,
           minWidth: minWidth,
           borderRadius: round,
         },
@@ -145,7 +147,10 @@ const ButtonSecond = ({
       {!isLoading && iconLeft && iconLeft}
       {title && (
         <TextDefault
-          style={[{ color: theme.text, fontWeight: 600 }, style.txt]}
+          style={[
+            { color: textColor || theme.text, fontWeight: 600 },
+            style.txt,
+          ]}
         >
           {title}
         </TextDefault>
@@ -224,7 +229,7 @@ const IconButton = ({
 
 const style = StyleSheet.create({
   btn: {
-    padding: 10,
+    padding: normalize(15),
     paddingVertical: 12,
     justifyContent: "center",
     alignContent: "center",

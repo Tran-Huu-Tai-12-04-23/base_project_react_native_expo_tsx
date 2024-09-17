@@ -1,7 +1,8 @@
 import BackBtn from "@components/BackBtn";
 import CheckBoxItem from "@components/CheckBox";
+import EffectBackgroundView from "@components/EffectBackgroundView";
 import {
-  ButtonLink,
+  ButtonOutlined,
   ButtonPrimary,
   Input,
   InputPassword,
@@ -12,10 +13,15 @@ import TextDefault from "@components/TextDefault";
 import { useTheme } from "@context/themContext";
 import Helper, { EKeyCheck, normalize } from "@helper/helpers";
 import MainLayout from "@layout/MainLayout";
+import { navigate } from "@navigation/NavigationService";
+import { ROUTE_KEY } from "@navigation/route";
+import AppleIcon from "assets/svg/apple-icon";
 import EmailIcon from "assets/svg/email-icon";
+import FacebookIcon from "assets/svg/facebook-icon";
+import GoogleIcon from "assets/svg/google-icon";
 import LockIcon from "assets/svg/lock-icon";
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Toast from "react-native-toast-message";
 import useLogin from "src/services/hooks/auth/useLogin";
 
@@ -65,6 +71,8 @@ export default function LoginScreen() {
 
   return (
     <MainLayout>
+      <EffectBackgroundView />
+
       <Row
         full
         direction="column"
@@ -72,9 +80,12 @@ export default function LoginScreen() {
         rowGap={10}
         start
       >
-        <TextDefault center bold>
-          Skip
-        </TextDefault>
+        <Row full between>
+          <BackBtn />
+          <TextDefault center bold>
+            Skip
+          </TextDefault>
+        </Row>
         <Separator height={normalize(10)} />
         <TextDefault center bold style={{ fontSize: normalize(20) }}>
           Hi! Welcome Back
@@ -103,27 +114,104 @@ export default function LoginScreen() {
             onChangeText={(txt) => handleChangeInput("password", txt)}
             text={userInput.password}
           />
-          <TouchableOpacity onPress={() => setIsRemember(!isRemember)}>
-            <CheckBoxItem
-              checked={isRemember}
-              label={"Remember me"}
-              onPress={() => setIsRemember(!isRemember)}
-            />
-          </TouchableOpacity>
-          <ButtonLink
-            onPress={function (): void {}}
-            title={"Forgot password?"}
-          />
+          <Row between full>
+            <TouchableOpacity onPress={() => setIsRemember(!isRemember)}>
+              <CheckBoxItem
+                checked={isRemember}
+                label={"Remember me"}
+                onPress={() => setIsRemember(!isRemember)}
+              />
+            </TouchableOpacity>
+            <TextDefault bold style={{ color: theme.primary }}>
+              Forgot Password?
+            </TextDefault>
+          </Row>
 
           <ButtonPrimary
             full
             onPress={handleLogin}
-            title={"Log In"}
+            title={"Sign In"}
             isLoading={isLoading}
           />
         </Row>
-        <BackBtn />
+
+        <Separator height={normalize(10)} />
+        <Row center colGap={10} style={{ marginHorizontal: normalize(20) }}>
+          <View
+            style={[
+              styles.spacing,
+              { backgroundColor: theme.backgroundSecond },
+            ]}
+          />
+          <TextDefault style={{ color: theme.backgroundSecond }}>
+            Or
+          </TextDefault>
+          <View
+            style={[
+              styles.spacing,
+              { backgroundColor: theme.backgroundSecond },
+            ]}
+          />
+        </Row>
+        <Separator height={normalize(10)} />
+        <Row direction="column" full center rowGap={10}>
+          <ButtonOutlined
+            iconLeft={<GoogleIcon />}
+            borderColor={theme.icon}
+            round={10}
+            full
+            title="Sign in with Google"
+            onPress={function (): void {}}
+          />
+          <ButtonOutlined
+            iconLeft={<AppleIcon />}
+            borderColor={theme.icon}
+            round={10}
+            full
+            title="Sign in with Apple"
+            onPress={function (): void {}}
+          />
+          <ButtonOutlined
+            iconLeft={<FacebookIcon />}
+            borderColor={theme.icon}
+            round={10}
+            full
+            title="Sign in with Facebook"
+            onPress={function (): void {}}
+          />
+        </Row>
+        <Separator height={normalize(10)} />
+
+        <Row
+          center
+          full
+          colGap={10}
+          style={{
+            marginTop: "auto",
+          }}
+        >
+          <TextDefault style={{ color: theme.background }}>
+            Don't have an account?
+          </TextDefault>
+          <TextDefault
+            bold
+            style={{ color: theme.tabIconSelected }}
+            onPress={() => {
+              navigate(ROUTE_KEY.REGISTER);
+            }}
+          >
+            Register
+          </TextDefault>
+        </Row>
+        <Separator height={normalize(30)} />
       </Row>
     </MainLayout>
   );
 }
+
+const styles = StyleSheet.create({
+  spacing: {
+    height: normalize(1),
+    width: "43%",
+  },
+});

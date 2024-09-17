@@ -1,4 +1,5 @@
 import { ButtonPrimary, IconButton } from "@components/Button";
+import EffectBackgroundView from "@components/EffectBackgroundView";
 import Row from "@components/Row";
 import Separator from "@components/Separator";
 import TextDefault from "@components/TextDefault";
@@ -11,7 +12,6 @@ import { localImages } from "assets/localImage";
 import AppleIcon from "assets/svg/apple-icon";
 import FacebookIcon from "assets/svg/facebook-icon";
 import GoogleIcon from "assets/svg/google-icon";
-import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { styleGlobal } from "../../../styles";
@@ -34,19 +34,7 @@ export default function GetStartedScreen() {
         source={localImages().getStartLight}
       />
 
-      <LinearGradient
-        // Background Linear Gradient
-        colors={["transparent", "rgba(0,0,0,0.8)"]}
-        style={{
-          height: normalize(deviceWidth * 0.8),
-          width: deviceWidth,
-          transform: [{ translateY: 30 }],
-          borderRadius: 10,
-          position: "absolute",
-          bottom: 0,
-        }}
-      />
-
+      <EffectBackgroundView />
       <Row
         direction="column"
         rowGap={10}

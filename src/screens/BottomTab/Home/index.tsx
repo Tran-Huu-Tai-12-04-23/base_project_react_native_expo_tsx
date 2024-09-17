@@ -1,20 +1,25 @@
-import Row from "@components/Row";
 import Separator from "@components/Separator";
+import { normalize } from "@helper/helpers";
 import MainLayout from "@layout/MainLayout";
 import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
+import FindFriendCard from "./FindFriendCard";
 import Header from "./Header";
-import TeamPreview from "./TeamPreview";
+import LstQuizzes from "./LstQuizzes";
+import RecentQuizItem from "./RecentQuizItem";
 
 function HomeScreen() {
   return (
     <MainLayout>
-      <Header />
       <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
-        <Separator height={10} />
-        <Row full direction="column" start rowGap={10} style={{}}>
-          <TeamPreview />
-        </Row>
+        <Separator height={normalize(40)} />
+        <Header />
+        <Separator height={20} />
+        <RecentQuizItem />
+        <Separator height={20} />
+        <FindFriendCard />
+        <Separator height={20} />
+        <LstQuizzes />
       </ScrollView>
     </MainLayout>
   );

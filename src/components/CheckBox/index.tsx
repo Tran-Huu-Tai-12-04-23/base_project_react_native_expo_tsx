@@ -1,6 +1,7 @@
 import Row from "@components/Row";
 import TextDefault from "@components/TextDefault";
 import { useTheme } from "@context/themContext";
+import { normalize } from "@helper/helpers";
 import React, { memo } from "react";
 import { TouchableOpacity } from "react-native";
 import { useDerivedValue, withTiming } from "react-native-reanimated";
@@ -28,12 +29,12 @@ const CheckBoxItem = memo((props: TypeProps) => {
         colGap={5}
         style={{ alignContent: "center", alignItems: "center" }}
       >
-        <Svg width={20} height={20} viewBox="0 0 49 49">
+        <Svg width={normalize(15)} height={normalize(15)} viewBox="0 0 49 49">
           <AnimatedColor
             onPress={onPress}
             progress={progress}
             checkedBorderColor={theme.primary}
-            unCheckedBorderColor={theme.tabIconDefault}
+            unCheckedBorderColor={"transparent"}
             checkedBackgroundColor={theme.primary}
             unCheckedBackgroundColor={theme.backgroundSecond}
           />

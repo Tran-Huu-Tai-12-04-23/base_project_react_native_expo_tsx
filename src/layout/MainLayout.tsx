@@ -1,7 +1,6 @@
 import { useTheme } from "@context/themContext";
-import { normalize } from "@helper/helpers";
 import React from "react";
-import { View } from "react-native";
+import { Keyboard, View } from "react-native";
 import { styleGlobal } from "src/styles";
 
 type PropsType = {
@@ -11,10 +10,8 @@ function MainLayout({ children }: PropsType) {
   const { theme } = useTheme();
   return (
     <View
-      style={[
-        styleGlobal.container,
-        { backgroundColor: theme.background, paddingTop: normalize(45) },
-      ]}
+      onTouchStart={() => Keyboard.dismiss()}
+      style={[styleGlobal.container, { backgroundColor: theme.background }]}
     >
       {children}
     </View>
