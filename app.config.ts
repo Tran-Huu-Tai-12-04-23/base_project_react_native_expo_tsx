@@ -70,7 +70,7 @@ export default (): ExpoConfig => ({
   owner: "huutaidev",
   extra: {
     eas: {
-      projectId: "1efe9236-bb07-4bcd-9113-944577a66809",
+      projectId: "9bf9c2f3-db18-4981-83a6-4ffa2fd97ac9",
     },
   },
   runtimeVersion: "1.0.0",
@@ -78,7 +78,7 @@ export default (): ExpoConfig => ({
     enabled: true,
     fallbackToCacheTimeout: 60_000,
     checkAutomatically: "ON_LOAD",
-    url: "https://u.expo.dev/1efe9236-bb07-4bcd-9113-944577a66809",
+    url: "https://u.expo.dev/9bf9c2f3-db18-4981-83a6-4ffa2fd97ac9",
   },
   ios: {
     bundleIdentifier: EXPO_PUBLIC_BUNDLE_ID,
