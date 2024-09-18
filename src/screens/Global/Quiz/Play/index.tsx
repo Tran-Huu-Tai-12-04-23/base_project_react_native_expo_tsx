@@ -8,7 +8,7 @@ import { normalize } from "@helper/helpers";
 import { deviceWidth } from "@helper/utils";
 import MainLayout from "@layout/MainLayout";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Animated, {
@@ -23,6 +23,7 @@ import QuestionItem from "./components/QuestionItem";
 import { data } from "./dto";
 
 function PlayQuizScreen() {
+  const lstRef = useRef<any>([]);
   const { theme } = useTheme();
   const [newData, setNewData] = useState([...data, ...data]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -112,7 +113,21 @@ function PlayQuizScreen() {
               </TextDefault>
               <Separator height={normalize(20)} />
               {data[currentIndex]?.lstAnswers.map((item, index) => {
-                return <AnswerItem data={item} key={index} />;
+                return (
+                  <AnswerItem
+                    ref={(ref) => (lstRef.current[index] = ref)}
+                    data={item}
+                    key={index}
+                    onCheckCorrect={() => {
+                      for (let i = 0; i < lstRef.current.length; i++) {
+                        if (lstRef.current[i]) {
+                          lstRef.current[i].resetAnswer();
+                        }
+                      }
+                      return index === data[currentIndex]?.correctAnswerIndex;
+                    }}
+                  />
+                );
               })}
               <Separator height={normalize(20)} />
               <Row full center>
