@@ -14,6 +14,10 @@ export const BOTTOM_TAB_ROUTE = createEnum({
   CREATE_QUIZ: "CREATE_QUIZ",
 });
 
+export const APP_ROUTE = createEnum({
+  QUIZ_PLAY: "QUIZ_PLAY",
+});
+
 function createEnum<T extends { [P in keyof T]: P }>(o: T) {
   return o;
 }

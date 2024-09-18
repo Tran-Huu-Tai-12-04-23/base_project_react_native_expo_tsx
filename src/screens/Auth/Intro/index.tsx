@@ -10,6 +10,7 @@ import { deviceHeight, deviceWidth } from "@helper/utils";
 import { navigate } from "@navigation/NavigationService";
 import { ROUTE_KEY } from "@navigation/route";
 import { localImages } from "assets/localImage";
+import AppIcon from "assets/svg/app-icon";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Updates from "expo-updates";
 import moment from "moment";
@@ -103,6 +104,8 @@ export default function IntroScreen() {
           { flex: 1, position: "absolute", bottom: 10 },
         ]}
       >
+        <AppIcon />
+        <Separator height={normalize(20)} />
         <TextDefault
           bold
           style={{

@@ -63,6 +63,7 @@ export default function RegisterScreen() {
         rowGap={10}
         start
       >
+        <Separator height={normalize(40)} />
         <Row full between>
           <BackBtn />
           <TextDefault center bold>

@@ -7,8 +7,8 @@ import {
 import React from "react";
 import { StatusBar } from "react-native";
 import "react-native-gesture-handler";
+import AppNavigator from "./AppNavigator";
 import AuthNavigator from "./AuthNavigator";
-import BottomTabNavigator from "./BottomTabNavigator";
 import { navigationRef } from "./NavigationService";
 import NotificationHandler from "./NotificationHandler";
 
@@ -38,7 +38,7 @@ const MainNavigation = () => {
     >
       <StatusBar barStyle="dark-content" />
       <NotificationHandler />
-      {user && <BottomTabNavigator />}
+      {user && <AppNavigator />}
       {!user && <AuthNavigator />}
     </NavigationContainer>
   );

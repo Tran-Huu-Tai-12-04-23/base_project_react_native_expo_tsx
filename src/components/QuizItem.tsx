@@ -1,6 +1,8 @@
 import { useTheme } from "@context/themContext";
 import { AntDesign } from "@expo/vector-icons";
 import { normalize } from "@helper/helpers";
+import { navigate } from "@navigation/NavigationService";
+import { APP_ROUTE } from "@navigation/route";
 import QuizIconItem from "assets/svg/quiz-item-icon";
 import React from "react";
 import { TouchableOpacity } from "react-native";
@@ -10,7 +12,7 @@ import TextDefault from "./TextDefault";
 function QuizItem() {
   const { theme } = useTheme();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigate(APP_ROUTE.QUIZ_PLAY)}>
       <Row
         full
         between
