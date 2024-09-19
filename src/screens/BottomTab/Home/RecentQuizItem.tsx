@@ -6,7 +6,7 @@ import MarkView from "assets/svg/mark";
 import QuizIcon from "assets/svg/quiz-icon";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import * as Progress from "react-native-progress";
+import CircularProgress from "react-native-circular-progress-indicator";
 
 function RecentQuizItem() {
   const { theme } = useTheme();
@@ -44,12 +44,22 @@ function RecentQuizItem() {
               </Row>
             </Row>
             <Row center direction="column" rowGap={5}>
-              <Progress.Pie size={60} color={theme.background} progress={0.4} />
+              <CircularProgress
+                radius={normalize(40)}
+                value={85}
+                titleFontSize={2}
+                valueSuffix={"%"}
+                activeStrokeColor={theme.background}
+                inActiveStrokeOpacity={0.2}
+                inActiveStrokeWidth={6}
+                duration={1000}
+              />
+              {/* <Progress.Pie size={60} color={theme.background} progress={0.4} />
               <TextDefault
                 style={{ color: theme.background, fontSize: normalize(12) }}
               >
                 65%
-              </TextDefault>
+              </TextDefault> */}
             </Row>
           </Row>
         </View>

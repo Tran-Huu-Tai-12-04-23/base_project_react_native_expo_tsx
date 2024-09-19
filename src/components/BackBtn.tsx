@@ -8,7 +8,7 @@ function BackBtn({ color }: { color?: string }) {
   const { theme } = useTheme();
 
   return (
-    <TouchableOpacity onPress={goBack} style={{ marginTop: "auto" }}>
+    <TouchableOpacity onPress={goBack} style={{}}>
       <AntDesign name="arrowleft" size={24} color={color || theme.text} />
     </TouchableOpacity>
   );

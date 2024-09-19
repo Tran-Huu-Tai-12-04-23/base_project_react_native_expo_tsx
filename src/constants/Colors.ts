@@ -3,7 +3,7 @@ const themeData = {
     text: "#111827",
     textSecond: "#90959F",
     background: "#FFFFFF",
-    backgroundSecond: "rgba(0,0,0,0.1)",
+    backgroundSecond: "rgba(0,0,0,0.051)",
     tabIconDefault: "#9BBDF8",
     tabIconSelected: "#699CF4",
     primary: "#699CF4",

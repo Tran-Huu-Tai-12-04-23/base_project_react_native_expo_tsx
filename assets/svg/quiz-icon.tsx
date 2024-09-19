@@ -10,8 +10,8 @@ import Svg, {
 } from "react-native-svg";
 const QuizIcon = (props: any) => (
   <Svg
-    width={88}
-    height={88}
+    width={props?.size || 88}
+    height={props?.size || 88}
     viewBox="0 0 88 88"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -23,9 +23,6 @@ const QuizIcon = (props: any) => (
     />
     <Mask
       id="mask0_302_2409"
-      style={{
-        maskType: "alpha",
-      }}
       maskUnits="userSpaceOnUse"
       x={5}
       y={0}

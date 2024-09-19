@@ -91,13 +91,13 @@ function CustomBottomBar({ state, descriptors, navigation }: any) {
               <View
                 key={route.name}
                 style={{
-                  transform: [{ translateY: -normalize(30) }],
                   height: normalize(50),
                   width: normalize(50),
                   alignContent: "center",
                   alignItems: "center",
                   justifyContent: "center",
                   borderRadius: normalize(1000),
+                  paddingHorizontal: normalize(20),
                 }}
               >
                 <TouchableOpacity
@@ -147,15 +147,16 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: normalize(10),
-    paddingBottom: normalize(10),
+    paddingBottom: normalize(20),
     backgroundColor: "transparent",
+    justifyContent: "space-between",
   },
   tab: {
     justifyContent: "center",
     alignItems: "center",
     ...styleGlobal.shadow,
     backgroundColor: "transparent",
-    width: "20%",
+    width: "18%",
   },
 });
 

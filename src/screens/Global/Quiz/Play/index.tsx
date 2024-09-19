@@ -8,8 +8,9 @@ import { normalize } from "@helper/helpers";
 import { deviceWidth } from "@helper/utils";
 import MainLayout from "@layout/MainLayout";
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import CircularProgress from "react-native-circular-progress-indicator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Animated, {
   Extrapolation,
@@ -23,6 +24,8 @@ import QuestionItem from "./components/QuestionItem";
 import { data } from "./dto";
 
 function PlayQuizScreen() {
+  const [restTimeBySecond, setRestTimeBySecond] = useState(0);
+
   const lstRef = useRef<any>([]);
   const { theme } = useTheme();
   const [newData, setNewData] = useState([...data, ...data]);
@@ -49,6 +52,32 @@ function PlayQuizScreen() {
     };
   });
 
+  const handleResetAnswer = () => {
+    for (let i = 0; i < lstRef.current.length; i++) {
+      if (lstRef.current[i]) {
+        lstRef.current[i].resetAnswer();
+      }
+    }
+  };
+
+  useEffect(() => {
+    handleResetAnswer();
+  }, [currentIndex]);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+    setRestTimeBySecond(0);
+    interval = setInterval(() => {
+      setRestTimeBySecond((prev) => prev + 1);
+    }, 1000);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [currentIndex]);
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Row
@@ -59,12 +88,24 @@ function PlayQuizScreen() {
           right: normalize(20),
           left: normalize(20),
           zIndex: 1000,
+          alignItems: "center",
         }}
         rowGap={10}
         between
       >
         <BackBtn color={"white"} />
-
+        <CircularProgress
+          radius={normalize(20)}
+          value={restTimeBySecond}
+          titleFontSize={2}
+          valueSuffix={"s"}
+          maxValue={60}
+          activeStrokeColor={
+            restTimeBySecond > 50 ? theme.danger : theme.tabIconDefault
+          }
+          inActiveStrokeOpacity={0.2}
+          inActiveStrokeWidth={6}
+        />
         <TextDefault bold style={{ fontSize: normalize(18), color: "white" }}>
           8/9
         </TextDefault>
@@ -119,11 +160,7 @@ function PlayQuizScreen() {
                     data={item}
                     key={index}
                     onCheckCorrect={() => {
-                      for (let i = 0; i < lstRef.current.length; i++) {
-                        if (lstRef.current[i]) {
-                          lstRef.current[i].resetAnswer();
-                        }
-                      }
+                      handleResetAnswer();
                       return index === data[currentIndex]?.correctAnswerIndex;
                     }}
                   />

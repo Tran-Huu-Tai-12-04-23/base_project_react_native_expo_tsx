@@ -1,3 +1,4 @@
+import { normalize } from "@helper/helpers";
 import React, { FC, ReactNode } from "react";
 import {
   Text as RNText,
@@ -11,9 +12,16 @@ interface Props extends RNTextProps {
   bold?: boolean;
   center?: boolean;
   numberOfLine?: number;
+  size?: number;
 }
 
-const TextDefault: FC<Props> = ({ children, style, bold, ...rest }) => {
+const TextDefault: FC<Props> = ({
+  children,
+  style,
+  bold,
+  size = normalize(12),
+  ...rest
+}) => {
   return (
     <RNText
       numberOfLines={rest.numberOfLines}
@@ -24,6 +32,7 @@ const TextDefault: FC<Props> = ({ children, style, bold, ...rest }) => {
         rest.center && styleText.center,
         {
           fontFamily: "Roboto",
+          fontSize: size,
         },
       ]}
       {...rest}
@@ -59,7 +68,7 @@ const styleText = StyleSheet.create({
     fontWeight: "bold",
   },
   title: {
-    fontSize: 20,
+    fontSize: normalize(18),
     fontWeight: "bold",
   },
 });

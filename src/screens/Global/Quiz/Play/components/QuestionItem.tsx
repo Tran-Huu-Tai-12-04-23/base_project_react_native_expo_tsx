@@ -1,7 +1,9 @@
+import Row from "@components/Row";
 import TextDefault from "@components/TextDefault";
 import { useTheme } from "@context/themContext";
 import { normalize } from "@helper/helpers";
-import React from "react";
+import { deviceWidth } from "@helper/utils";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, useWindowDimensions } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
@@ -14,7 +16,6 @@ import Animated, {
 } from "react-native-reanimated";
 import { styleGlobal } from "src/styles";
 import { QuizDTO } from "../dto";
-
 type Props = {
   newData: QuizDTO[];
   setNewData: React.Dispatch<React.SetStateAction<QuizDTO[]>>;
@@ -42,6 +43,7 @@ const QuestionItem = ({
   const { width } = useWindowDimensions();
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
+
 
   const pan = Gesture.Pan()
     .onUpdate((e) => {
@@ -122,6 +124,8 @@ const QuestionItem = ({
     };
   });
 
+
+
   return (
     <GestureDetector gesture={pan}>
       <Animated.View
@@ -132,9 +136,20 @@ const QuestionItem = ({
           styleGlobal.shadow,
         ]}
       >
-        <TextDefault bold style={{ fontSize: normalize(18) }}>
-          {item.question}
-        </TextDefault>
+        <Row
+          direction="column"
+          center
+          style={{
+            padding: normalize(20),
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <TextDefault bold style={{ fontSize: normalize(18) }}>
+            {item.question}
+          </TextDefault>
+        </Row>
       </Animated.View>
     </GestureDetector>
   );
@@ -145,12 +160,9 @@ export default QuestionItem;
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    width: 360,
+    width: deviceWidth - normalize(20),
     height: 200,
-    borderRadius: 28,
-    padding: 16,
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 10,
   },
 
   imageContainer: {
