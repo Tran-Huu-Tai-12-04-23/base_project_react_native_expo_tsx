@@ -27,13 +27,14 @@ const TextDefault: FC<Props> = ({
       numberOfLines={rest.numberOfLines}
       style={[
         styleGlobal.text,
-        style,
+
         bold && styleText.bold,
         rest.center && styleText.center,
         {
           fontFamily: "Roboto",
           fontSize: size,
         },
+        style,
       ]}
       {...rest}
     >
@@ -48,9 +49,10 @@ export const Title: FC<Props> = ({ children, style, bold, ...rest }) => {
       numberOfLines={rest.numberOfLines}
       style={[
         styleText.title,
-        style,
+
         bold && styleText.bold,
         rest.center && styleText.center,
+        style,
         {
           fontFamily: "Roboto",
         },

@@ -56,7 +56,7 @@ function Chart() {
           alignItems: "flex-end",
         }}
       >
-        <Row direction="column" rowGap={50} style={{ width: "25%" }}>
+        <Row direction="column" rowGap={normalize(20)} style={{ width: "25%" }}>
           {["100%", "75%", "50%", "25%", "0%"].map((item, index) => (
             <View key={index} style={{ width: "100%" }}>
               <TextDefault style={{ color: theme.background }} bold>
@@ -73,7 +73,7 @@ function Chart() {
           <View
             style={{
               width: normalize(deviceWidth / 4 - 50),
-              height: 200,
+              height: 100,
               backgroundColor: "#FFD6DD",
               borderTopEndRadius: normalize(5),
               borderTopStartRadius: normalize(5),
@@ -95,7 +95,7 @@ function Chart() {
           <View
             style={{
               width: normalize(deviceWidth / 4 - 50),
-              height: 300,
+              height: 50,
               backgroundColor: "#C4D0FB",
               borderTopEndRadius: normalize(5),
               borderTopStartRadius: normalize(5),
@@ -113,13 +113,13 @@ function Chart() {
             style={{ width: "25%", paddingHorizontal: normalize(5) }}
           >
             <TextDefault
-              style={{ color: theme.background, fontSize: normalize(32) }}
+              style={{ color: theme.background, fontSize: normalize(14) }}
               bold
             >
               {item}
             </TextDefault>
             <TextDefault
-              style={{ color: theme.tabIconDefault, fontSize: normalize(22) }}
+              style={{ color: theme.tabIconDefault, fontSize: normalize(12) }}
             >
               Total
             </TextDefault>

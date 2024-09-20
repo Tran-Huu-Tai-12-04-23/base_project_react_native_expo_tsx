@@ -12,7 +12,7 @@ interface ButtonPrimaryProps {
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   isLoading?: boolean;
-  minWidth?: number;
+  minWidth?: number | "100%";
   disabled?: boolean;
   full?: boolean;
   borderColor?: string;

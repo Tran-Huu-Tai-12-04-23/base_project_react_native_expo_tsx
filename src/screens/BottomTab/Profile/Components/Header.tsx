@@ -3,6 +3,8 @@ import { IconButton } from "@components/Button";
 import Row from "@components/Row";
 import { useTheme } from "@context/themContext";
 import { normalize } from "@helper/helpers";
+import { navigate } from "@navigation/NavigationService";
+import { APP_ROUTE } from "@navigation/route";
 import SettingIcon from "assets/svg/setting-icon";
 import React from "react";
 
@@ -23,7 +25,7 @@ function Header() {
       <BackBtn color={theme.background} />
       <IconButton
         icon={<SettingIcon />}
-        onPress={function (): void {}}
+        onPress={() => navigate(APP_ROUTE.SETTING)}
       ></IconButton>
     </Row>
   );

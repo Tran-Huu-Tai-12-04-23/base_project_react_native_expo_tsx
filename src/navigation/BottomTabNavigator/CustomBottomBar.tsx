@@ -9,7 +9,6 @@ import SearchIcon from "assets/svg/search-icon";
 import { BlurView } from "expo-blur";
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { styleGlobal } from "src/styles";
 
 function CustomBottomBar({ state, descriptors, navigation }: any) {
   const { theme } = useTheme();
@@ -154,7 +153,6 @@ const styles = StyleSheet.create({
   tab: {
     justifyContent: "center",
     alignItems: "center",
-    ...styleGlobal.shadow,
     backgroundColor: "transparent",
     width: "18%",
   },
