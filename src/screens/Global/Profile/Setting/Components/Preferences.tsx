@@ -7,15 +7,17 @@ import { StyleSheet } from "react-native";
 import { styleGlobal } from "src/styles";
 import RowItem from "./RowItem";
 
-const userInfo: { name: string; email: string } = {
-  name: "Tran Huu Tai",
-  email: "huutt201@gmail.com",
-};
-function PersonalInfo() {
+const preferencesData = [
+  { name: "Push notification", checked: false },
+  { name: "Sound effects", checked: false },
+];
+
+function Preferences({ onSettingTheme }: { onSettingTheme: () => void }) {
   const { theme } = useTheme();
+
   return (
     <Row direction="column" full start rowGap={normalize(5)}>
-      <TextDefault>Personal info</TextDefault>
+      <TextDefault>Preferences</TextDefault>
       <Row
         full
         direction="column"
@@ -25,16 +27,16 @@ function PersonalInfo() {
           { backgroundColor: theme.background, borderColor: theme.border },
         ]}
       >
-        {Object.keys(userInfo).map((key, index) => (
+        {preferencesData.map((item, index) => (
           <RowItem
+            isBorderBottom
             key={index}
-            isBorderBottom={index < Object.keys(userInfo)?.length}
-            subTitle={userInfo[key as keyof typeof userInfo]}
-            title={key.substring(0, 1).toUpperCase() + key.substring(1)}
+            title={item.name}
+            isNavigate={false}
+            isChecked
           />
         ))}
-
-        <RowItem title={"Reset password"} />
+        <RowItem title={"Themes"} subTitle="Dark" onPress={onSettingTheme} />
       </Row>
     </Row>
   );
@@ -46,6 +48,11 @@ const styles = StyleSheet.create({
     ...styleGlobal.border,
     borderRadius: normalize(10),
   },
+  item: {
+    padding: normalize(10),
+    borderBottomWidth: 1,
+    alignItems: "center",
+  },
 });
 
-export default PersonalInfo;
+export default Preferences;

@@ -16,7 +16,6 @@ export const styleGlobal = StyleSheet.create({
     borderStyle: "solid",
   },
   text: {
-    color: "#1F2937",
     fontSize: normalize(12),
   },
   container: {

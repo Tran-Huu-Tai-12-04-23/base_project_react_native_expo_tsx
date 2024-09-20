@@ -16,9 +16,9 @@ const themeData = {
   },
   dark: {
     text: "#FFFFFF",
-    textSecond: "#7E8189",
-    background: "#111827",
-    backgroundSecond: "#1F2937",
+    textSecond: "#ffff",
+    background: "#21232A",
+    backgroundSecond: "#2D3039",
     tabIconDefault: "#9BBDF8",
     tabIconSelected: "#699CF4",
     primary: "#699CF4",

@@ -1,3 +1,4 @@
+import { useTheme } from "@context/themContext";
 import { normalize } from "@helper/helpers";
 import React, { FC, ReactNode } from "react";
 import {
@@ -22,17 +23,18 @@ const TextDefault: FC<Props> = ({
   size = normalize(12),
   ...rest
 }) => {
+  const { theme } = useTheme();
   return (
     <RNText
       numberOfLines={rest.numberOfLines}
       style={[
         styleGlobal.text,
-
         bold && styleText.bold,
         rest.center && styleText.center,
         {
           fontFamily: "Roboto",
           fontSize: size,
+          color: theme.text,
         },
         style,
       ]}

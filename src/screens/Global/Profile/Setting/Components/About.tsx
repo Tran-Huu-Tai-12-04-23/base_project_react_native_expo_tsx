@@ -7,15 +7,18 @@ import { StyleSheet } from "react-native";
 import { styleGlobal } from "src/styles";
 import RowItem from "./RowItem";
 
-const userInfo: { name: string; email: string } = {
-  name: "Tran Huu Tai",
-  email: "huutt201@gmail.com",
-};
-function PersonalInfo() {
+const aboutData = [
+  { name: "Privacy policy", link: "https://www.google.com/" },
+  { name: "Team of service", link: "https://www.google.com/" },
+  { name: "Open source license", link: "https://www.google.com/" },
+  { name: "Help center", link: "https://www.google.com/" },
+];
+
+function AboutInfo() {
   const { theme } = useTheme();
   return (
     <Row direction="column" full start rowGap={normalize(5)}>
-      <TextDefault>Personal info</TextDefault>
+      <TextDefault>About</TextDefault>
       <Row
         full
         direction="column"
@@ -25,16 +28,13 @@ function PersonalInfo() {
           { backgroundColor: theme.background, borderColor: theme.border },
         ]}
       >
-        {Object.keys(userInfo).map((key, index) => (
+        {aboutData.map((item, index) => (
           <RowItem
+            title={item.name}
             key={index}
-            isBorderBottom={index < Object.keys(userInfo)?.length}
-            subTitle={userInfo[key as keyof typeof userInfo]}
-            title={key.substring(0, 1).toUpperCase() + key.substring(1)}
+            isBorderBottom={index < aboutData.length - 1}
           />
         ))}
-
-        <RowItem title={"Reset password"} />
       </Row>
     </Row>
   );
@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
     ...styleGlobal.border,
     borderRadius: normalize(10),
   },
+  item: {
+    padding: normalize(10),
+    borderBottomWidth: 1,
+    alignItems: "center",
+  },
 });
 
-export default PersonalInfo;
+export default AboutInfo;

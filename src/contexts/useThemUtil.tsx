@@ -1,9 +1,10 @@
 import * as SecureStore from "expo-secure-store";
-
+import { Appearance } from "react-native";
 const KEY_THEM = "THEME";
 export enum ETheme {
   "DARK" = "DARK",
   "LIGHT" = "LIGHT",
+  "SYSTEM" = "SYSTEM",
 }
 
 export const useThemeUtil = () => {
@@ -19,6 +20,7 @@ export const useThemeUtil = () => {
     onSaveTheme: (value: ETheme) => {
       save(value);
     },
+    onGetSystemTheme: () => Appearance.getColorScheme(),
     onGetTheme: async () => {
       return await getValueFor();
     },

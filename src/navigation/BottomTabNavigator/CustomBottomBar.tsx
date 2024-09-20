@@ -29,8 +29,8 @@ function CustomBottomBar({ state, descriptors, navigation }: any) {
     {
       name: BOTTOM_TAB_ROUTE.CREATE_QUIZ,
       key: BOTTOM_TAB_ROUTE.CREATE_QUIZ,
-      iconDefault: <AddIcon color={theme.background} />,
-      iconActive: <AddIcon color={theme.background} />,
+      iconDefault: <AddIcon color={"white"} />,
+      iconActive: <AddIcon color={"white"} />,
       isCreate: true,
     },
     {
