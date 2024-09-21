@@ -26,8 +26,8 @@ const BottomTabNavigator = () => {
     >
       <Screen name={BOTTOM_TAB_ROUTE.HOME} component={HomeScreen} />
       <Screen name={BOTTOM_TAB_ROUTE.SEARCH} component={HomeScreen} />
-      <Screen name={BOTTOM_TAB_ROUTE.CREATE_QUIZ} component={HomeScreen} />
       <Screen name={BOTTOM_TAB_ROUTE.LIBRARY} component={HomeScreen} />
+      <Screen name={"test"} component={HomeScreen} />
       <Screen name={BOTTOM_TAB_ROUTE.PERSONAL} component={ProfileScreen} />
     </Navigator>
   );

@@ -13,6 +13,7 @@ const themeData = {
     input: "#F9FAFB",
     icon: "#9CA3AF",
     border: "#EEEFF2",
+    contrastText: "white",
   },
   dark: {
     text: "#FFFFFF",
@@ -27,7 +28,8 @@ const themeData = {
     success: "#A7D2A5",
     input: "#2C313F",
     icon: "#9CA3AF",
-    border: "#EEEFF2",
+    border: "#2C313F",
+    contrastText: "white",
   },
 };
 

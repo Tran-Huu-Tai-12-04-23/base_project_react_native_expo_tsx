@@ -51,20 +51,14 @@ function SummaryActivity() {
           </TextDefault>
           <TextDefault>Quiz created</TextDefault>
           <View style={styles.icon}>
-            <EditIcon size={normalize(32)} />
+            <EditIcon color={"white"} size={normalize(32)} />
           </View>
         </View>
         <View style={[styles.leftIcon, { backgroundColor: theme.primary }]}>
-          <TextDefault
-            style={{ color: theme.background }}
-            bold
-            size={normalize(20)}
-          >
+          <TextDefault style={{ color: "white" }} bold size={normalize(20)}>
             21
           </TextDefault>
-          <TextDefault style={{ color: theme.background }}>
-            Quiz won
-          </TextDefault>
+          <TextDefault style={{ color: "white" }}>Quiz won</TextDefault>
 
           <View style={styles.icon}>
             <QuizIcon size={normalize(32)} />

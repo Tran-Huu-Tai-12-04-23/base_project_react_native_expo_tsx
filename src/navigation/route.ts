@@ -16,6 +16,7 @@ export const BOTTOM_TAB_ROUTE = createEnum({
 
 export const APP_ROUTE = createEnum({
   QUIZ_PLAY: "QUIZ_PLAY",
+  CREATE_QUIZ: "CREATE_QUIZ",
   SETTING: "SETTING",
 });
 

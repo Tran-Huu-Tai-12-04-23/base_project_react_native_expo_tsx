@@ -25,7 +25,7 @@ function Chart() {
       style={[styles.container, { backgroundColor: theme.primary }]}
     >
       <Row between full>
-        <Title style={{ color: theme.background, maxWidth: "80%" }}>
+        <Title style={{ color: "white", maxWidth: "80%" }}>
           Top performance by category
         </Title>
         <IconButton icon={<ChartIcon />} onPress={function (): void {}} />
@@ -42,7 +42,7 @@ function Chart() {
                 },
               ]}
             />
-            <TextDefault bold style={{ color: theme.background }}>
+            <TextDefault bold style={{ color: "white" }}>
               {item.name}
             </TextDefault>
           </Row>
@@ -59,7 +59,7 @@ function Chart() {
         <Row direction="column" rowGap={normalize(20)} style={{ width: "25%" }}>
           {["100%", "75%", "50%", "25%", "0%"].map((item, index) => (
             <View key={index} style={{ width: "100%" }}>
-              <TextDefault style={{ color: theme.background }} bold>
+              <TextDefault style={{ color: "white" }} bold>
                 {item}
               </TextDefault>
 
@@ -113,14 +113,12 @@ function Chart() {
             style={{ width: "25%", paddingHorizontal: normalize(5) }}
           >
             <TextDefault
-              style={{ color: theme.background, fontSize: normalize(14) }}
+              style={{ color: "white", fontSize: normalize(14) }}
               bold
             >
               {item}
             </TextDefault>
-            <TextDefault
-              style={{ color: theme.tabIconDefault, fontSize: normalize(12) }}
-            >
+            <TextDefault style={{ color: "white", fontSize: normalize(12) }}>
               Total
             </TextDefault>
           </Row>

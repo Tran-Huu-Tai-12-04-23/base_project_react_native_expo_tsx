@@ -1,6 +1,7 @@
 import { useTheme } from "@context/themContext";
 import { normalize } from "@helper/helpers";
-import { BOTTOM_TAB_ROUTE } from "@navigation/route";
+import { navigate } from "@navigation/NavigationService";
+import { APP_ROUTE, BOTTOM_TAB_ROUTE } from "@navigation/route";
 import AddIcon from "assets/svg/add-icon";
 import FolderFavoriteIcon from "assets/svg/folder-favorite-icon";
 import HomeIcon from "assets/svg/home-icon";
@@ -64,27 +65,6 @@ function CustomBottomBar({ state, descriptors, navigation }: any) {
     >
       <View style={[styles.container]}>
         {bottomBarRoutes.map((route, index) => {
-          const { options } = descriptors[state.routes[index]?.key];
-          const isFocused = state.index === index;
-          const onPress = () => {
-            const event = navigation.emit({
-              type: "tabPress",
-              target: state.routes[index].key,
-              canPreventDefault: true,
-            });
-
-            if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name);
-            }
-          };
-
-          const onLongPress = () => {
-            navigation.emit({
-              type: "tabLongPress",
-              target: state.routes[index]?.key,
-            });
-          };
-
           if (route.isCreate) {
             return (
               <View
@@ -100,12 +80,7 @@ function CustomBottomBar({ state, descriptors, navigation }: any) {
                 }}
               >
                 <TouchableOpacity
-                  accessibilityRole="button"
-                  accessibilityState={isFocused ? { selected: true } : {}}
-                  accessibilityLabel={options.tabBarAccessibilityLabel}
-                  testID={options.tabBarTestID}
-                  onPress={onPress}
-                  onLongPress={onLongPress}
+                  onPress={() => navigate(APP_ROUTE.CREATE_QUIZ)}
                   style={[
                     styles.tab,
                     {
@@ -116,11 +91,34 @@ function CustomBottomBar({ state, descriptors, navigation }: any) {
                     },
                   ]}
                 >
-                  {isFocused ? route.iconActive : route.iconDefault}
+                  {route.iconActive}
                 </TouchableOpacity>
               </View>
             );
           }
+
+          const options = descriptors[state.routes[index]?.key]?.options;
+
+          if (!options) return;
+          const isFocused = state.index === index;
+          const onPress = () => {
+            const event = navigation.emit({
+              type: "tabPress",
+              target: state.routes[index]?.key,
+              canPreventDefault: true,
+            });
+
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          };
+
+          const onLongPress = () => {
+            navigation.emit({
+              type: "tabLongPress",
+              target: state.routes[index]?.key,
+            });
+          };
 
           return (
             <TouchableOpacity

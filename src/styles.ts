@@ -6,6 +6,10 @@ export const styleGlobal = StyleSheet.create({
     width: normalize(25),
     height: normalize(25),
   },
+  cardItem: {
+    width: normalize(60),
+    height: normalize(60),
+  },
   borderBottom: {
     borderBottomWidth: 1,
     borderStyle: "solid",

@@ -31,13 +31,13 @@ function RecentQuizItem() {
           </View>
           <Row full between>
             <Row direction="column" start rowGap={10}>
-              <TextDefault bold style={{ color: theme.background }}>
+              <TextDefault bold style={{ color: theme.contrastText }}>
                 RECENT QUIZ
               </TextDefault>
               <Row>
                 <QuizIcon />
                 <TextDefault
-                  style={{ color: theme.background, fontSize: normalize(16) }}
+                  style={{ color: theme.contrastText, fontSize: normalize(16) }}
                 >
                   A basic quiz
                 </TextDefault>
