@@ -9,5 +9,7 @@ export function localImages() {
     book: require("./images/book.png"),
     english: require("./images/english-icon.png"),
     education: require("./images/education.png"),
+    chooseLevel: require("./images/choose-level.png"),
+    complete: require("./images/complete.png"),
   };
 }

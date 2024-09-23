@@ -1,4 +1,3 @@
-import { ButtonPrimary } from "@components/Button";
 import Row from "@components/Row";
 import Separator from "@components/Separator";
 import TextDefault from "@components/TextDefault";
@@ -75,7 +74,6 @@ function ChooseSubject() {
           ))}
         </Row>
       </Row>
-    
     </Fragment>
   );
 }
@@ -90,7 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: normalize(20),
   },
-
 });
 
 export default ChooseSubject;

@@ -42,12 +42,12 @@ export const styleGlobal = StyleSheet.create({
     marginBottom: 8,
     shadowColor: "#000",
     shadowOffset: {
-      width: 1,
-      height: 1,
+      width: 0,
+      height: 2,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 1.41,
-    elevation: Platform.OS === "android" ? 2 : undefined,
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: Platform.OS === "android" ? 5 : undefined,
   },
   badge: {
     position: "absolute",

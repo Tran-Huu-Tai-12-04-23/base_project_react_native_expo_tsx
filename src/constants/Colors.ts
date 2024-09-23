@@ -19,7 +19,7 @@ const themeData = {
     text: "#FFFFFF",
     textSecond: "#ffff",
     background: "#21232A",
-    backgroundSecond: "#2D3039",
+    backgroundSecond: "rgba(0,0,0,0.1)",
     tabIconDefault: "#9BBDF8",
     tabIconSelected: "#699CF4",
     primary: "#699CF4",

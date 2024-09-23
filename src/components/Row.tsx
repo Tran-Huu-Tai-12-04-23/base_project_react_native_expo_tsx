@@ -15,6 +15,7 @@ interface RowProps {
   full?: boolean;
   rowGap?: number;
   colGap?: number;
+  onTouchStart?: (e: any) => void;
 }
 
 const Row: React.FC<RowProps> = (props) => {
@@ -30,6 +31,7 @@ const Row: React.FC<RowProps> = (props) => {
     start,
     center,
     end,
+    onTouchStart,
   } = props;
   const rowStyle = [
     styles.container,
@@ -47,6 +49,7 @@ const Row: React.FC<RowProps> = (props) => {
 
   return (
     <View
+      onTouchStart={onTouchStart}
       style={[
         { width: full ? "100%" : "auto", flexWrap: wrap ? "wrap" : "nowrap" },
         {

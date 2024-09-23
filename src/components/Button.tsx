@@ -53,9 +53,7 @@ const ButtonPrimary = ({
       {isLoading && <ActivityIndicator color={theme.background} />}
       {!isLoading && iconLeft && iconLeft}
       {title && (
-        <TextDefault
-          style={[{ color: theme.background, fontWeight: 600 }, style.txt]}
-        >
+        <TextDefault style={[{ color: "white", fontWeight: 600 }, style.txt]}>
           {title}
         </TextDefault>
       )}

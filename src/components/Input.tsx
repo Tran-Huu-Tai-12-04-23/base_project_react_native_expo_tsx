@@ -11,6 +11,7 @@ type InputProps = {
   label?: string;
   placeholder?: string;
   leftIcon?: React.ReactNode;
+  multiple?: boolean;
 };
 const Input = ({
   onChangeText,
@@ -18,6 +19,7 @@ const Input = ({
   label,
   placeholder,
   leftIcon,
+  multiple,
 }: InputProps) => {
   const { theme } = useTheme();
   const [isFocus, setIsFocus] = useState(false);
@@ -27,6 +29,7 @@ const Input = ({
       direction="column"
       start
       rowGap={5}
+      onTouchStart={(e) => e.stopPropagation()}
       style={[
         styles.borderBottom,
         {
@@ -49,6 +52,7 @@ const Input = ({
       >
         {leftIcon && leftIcon}
         <TextInput
+          multiline={multiple}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           autoCapitalize="none"
